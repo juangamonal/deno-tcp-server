@@ -6,19 +6,3 @@ export enum Event {
 	message = "message",
 	shutdown = "shutdown"
 }
-
-type EventCallback = (data?: Object) => void;
-
-export class EventEmitter {
-	protected eventsHandler: Map<Event, EventCallback> = new Map();
-
-	emit(name: Event, data?: Object) {
-		const cb = this.eventsHandler.get(name);
-
-		if (cb !== undefined) cb(data);
-	}
-
-	on(name: Event, callback: EventCallback) {
-		this.eventsHandler.set(name, callback);
-	}
-}

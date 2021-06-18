@@ -14,3 +14,5 @@ server.on(Event.shutdown, () => console.log("TCP Server off"));
 
 await server.listen();
 ```
+
+Don't forget to run Deno with the `--allow-net` flag.
